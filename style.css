@@ -1,0 +1,664 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 15% 2fr 15%;
+  grid-template-columns: 25% 75%;
+  grid-template-areas:
+    "header     header"
+    "sidebar   content"
+    "footer     footer";
+}
+
+.header {
+  grid-area: header;
+  background-color: #116497;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 5px;
+  align-items: center;
+}
+.heading img {
+  filter: invert(90%);
+}
+.caption {
+  font-size: 35px;
+  font-family: "Squada One", cursive;
+  color: #e6dddd;
+}
+.sidebar {
+  grid-area: sidebar;
+  background-color: #e6f1f7;
+}
+.content {
+  grid-area: content;
+  background-color: #e6dddd;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 5px;
+}
+.footer {
+  grid-area: footer;
+  background-color: #204f6d;
+}
+.side-contents {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto auto;
+
+  gap: 20px;
+}
+.daily {
+  display: grid;
+  padding: 20px;
+  justify-content: center;
+
+  gap: 10px;
+}
+.projects {
+  display: grid;
+  justify-content: center;
+  overflow: auto;
+  gap: 5px;
+}
+.top {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 6px;
+  align-items: center;
+  font-family: "Ultra", serif;
+}
+.top:hover {
+  border-radius: 1em;
+  background-color: cadetblue;
+  padding: 7px;
+  cursor: pointer;
+}
+.projects span {
+  font-family: "Squada One", cursive;
+  font-size: 25px;
+}
+.add {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+}
+.add:hover {
+  border-radius: 1em;
+  background-color: cadetblue;
+  padding: 7px;
+  cursor: pointer;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 10px;
+  border-radius: 2rem;
+  background-color: #d6cfcf;
+  width: 50%;
+  max-width: 400px;
+  height: 40%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content input {
+  width: 300px;
+  height: 40px;
+  overflow: auto;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.modal-add-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal-cancel-button {
+  background-color: #f32f21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.modal-add-button:hover {
+  border: 4px solid #f59e0b;
+}
+.modal-cancel-button:hover {
+  border: 4px solid #075985;
+  border: 4px solid #f59e0b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s;
+}
+#project-task.modal {
+  display: none;
+}
+
+.project-contents {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+}
+.add2 {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+}
+.add2:hover {
+  border-radius: 1em;
+  background-color: cadetblue;
+  padding: 5px;
+  cursor: pointer;
+}
+.add2 img {
+  max-width: 100%;
+}
+.img-filter:hover {
+  filter: invert(100%);
+  cursor: pointer;
+}
+.project-filter:hover {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+
+.today-add {
+  display: grid;
+  grid-template-columns: 30px 100px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+  max-width: 100%;
+}
+
+.today-image-add:hover {
+  filter: invert(100%);
+  cursor: pointer;
+}
+.weekly-image-add:hover {
+  filter: invert(100%);
+  cursor: pointer;
+}
+.today-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.today-modal-content {
+  padding: 10px;
+  border-radius: 2rem;
+  background-color: #d6cfcf;
+  width: 50%;
+  max-width: 400px;
+  height: 40%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.today-modal-content input {
+  width: 300px;
+  height: 40px;
+  overflow: auto;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.today-modal-add-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.today-modal-cancel-button {
+  background-color: #f32f21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.today-modal-add-button:hover {
+  border: 4px solid #f59e0b;
+}
+.today-modal-cancel-button:hover {
+  border: 4px solid #075985;
+  border: 4px solid #f59e0b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s;
+}
+#today-task.today-modal {
+  display: none;
+
+}
+.the-today {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+.today-add2 {
+  display: grid;
+  grid-template-columns: 30px 100px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+  max-width: 100%;
+}
+.contents-today {
+  display: grid;
+  gap: 5px;
+  overflow: auto;
+}
+.add3 {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.today-page {
+  /* display: none; */
+}
+.weekly-page {
+  display: none;
+}
+.the-weekly {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+.weekly-heading {
+}
+.contents-weekly {
+  display: grid;
+  gap: 5px;
+  overflow: auto;
+}
+
+.weekly-add {
+  display: grid;
+  grid-template-columns: 30px 100px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+  max-width: 100%;
+}
+
+.weekly-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weekly-modal-content {
+  padding: 10px;
+  border-radius: 2rem;
+  background-color: #d6cfcf;
+  width: 50%;
+  max-width: 400px;
+  height: 40%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weekly-modal-content input {
+  width: 300px;
+  height: 40px;
+  overflow: auto;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.weekly-modal-add-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.weekly-modal-cancel-button {
+  background-color: #f32f21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.weekly-modal-add-button:hover {
+  border: 4px solid #f59e0b;
+}
+.weekly-modal-cancel-button:hover {
+  border: 4px solid #075985;
+  border: 4px solid #f59e0b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s;
+}
+#weekly-task.weekly-modal {
+  display: none;
+}
+.add4 {
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contents-weekly img{
+    max-width: 100%;
+}
+.project-page{
+
+}
+.the-project{
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+.project-text{
+
+}
+.project-add{
+  display: grid;
+  grid-template-columns: 30px 100px;
+  gap: 6px;
+  font-family: "Squada One", cursive;
+  font-size: 20px;
+  align-items: center;
+  max-width: 100%;
+}
+.contents-project{
+  display: grid;
+  gap: 5px;
+  overflow: auto;
+}
+
+.new-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-modal-content {
+  padding: 10px;
+  border-radius: 2rem;
+  background-color: #d6cfcf;
+  width: 50%;
+  max-width: 400px;
+  height: 40%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-modal-content input {
+  width: 300px;
+  height: 40px;
+  overflow: auto;
+  font-family: "Wix Madefor Display", sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.new-modal-add-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.new-modal-cancel-button {
+  background-color: #f32f21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.new-modal-add-button:hover {
+  border: 4px solid #f59e0b;
+}
+.new-modal-cancel-button:hover {
+  border: 4px solid #075985;
+  border: 4px solid #f59e0b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s;
+}
+#new-task.new-modal {
+  display: none;
+}

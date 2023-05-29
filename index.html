@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="project-task" class="modal">
+      <div class="modal-content">
+        <div class="hidden-add">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="add-projects"
+            placeholder="add your projects here"
+          />
+          <div class="buttons">
+            <button class="modal-add-button">Add</button>
+            <button class="modal-cancel-button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="today-task" class="today-modal">
+      <div class="today-modal-content">
+        <div class="hidden-add">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="add-todays-tasks"
+            placeholder="add your tasks here"
+          />
+          <div class="buttons">
+            <button class="today-modal-add-button">Add</button>
+            <button class="today-modal-cancel-button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="new-task" class="new-modal">
+      <div class="new-modal-content">
+        <div class="hidden-add">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="add-new-tasks"
+            placeholder="add your tasks here"
+          />
+          <div class="buttons">
+            <button class="new-modal-add-button">Add</button>
+            <button class="new-modal-cancel-button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="weekly-task" class="weekly-modal">
+      <div class="weekly-modal-content">
+        <div class="hidden-add">
+          <input
+            type="text"
+            name=""
+            id=""
+            class="add-weekly-tasks"
+            placeholder="add your tasks here"
+          />
+          <div class="buttons">
+            <button class="weekly-modal-add-button">Add</button>
+            <button class="weekly-modal-cancel-button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container">
+      <div class="header">
+        <div class="heading">
+          <div class="header-image">
+            <img src="images/arrow-down-bold-box-outline.svg" alt="" />
+          </div>
+          <div class="caption">Chidi's To-do List</div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="side-contents">
+          <div class="daily">
+            <div class="day top">
+              <img src="images/sun-clock.svg" alt="" />
+              <span>Today</span>
+            </div>
+            <div class="week top">
+              <img src="images/calendar-range.svg" alt="" />
+              <span>Weekly</span>
+            </div>
+          </div>
+          <div class="projects">
+            <span>Projects</span>
+            <div class="project-contents">
+              <div class="add">
+                <img src="images/plus.svg" alt="" />
+                <div>Add Projects</div>
+              </div>
+            </div>
+            <div class="project"></div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="today-page">
+          <div class="the-today">
+            <span class="today-heading"><h1>Today</h1></span>
+            <div class="today-add">
+              <img src="images/plus.svg" alt="" class="today-image-add" />
+              <div>Add Tasks</div>
+            </div>
+            <div class="contents-today"></div>
+          </div>
+        </div>
+        <div class="weekly-page">
+          <div class="the-weekly">
+            <span class="weekly-heading">
+              <h1>Weekly</h1>
+            </span>
+            <div class="weekly-add">
+              <img src="images/plus.svg" alt="" class="weekly-image-add" />
+              <div>Add Tasks</div>
+            </div>
+            <div class="contents-weekly"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>
